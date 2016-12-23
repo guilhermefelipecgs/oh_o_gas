@@ -20,8 +20,10 @@ func _process(delta):
 func throw(direction):
 	var spawn_canister = canister.instance()
 	if(direction == LEFT):
+		spawn_canister.set_angular_velocity(5)
 		spawn_canister.apply_impulse(Vector2(), LEFT*350)
 	else:
+		spawn_canister.set_angular_velocity(-5)
 		spawn_canister.apply_impulse(Vector2(), RIGHT*350)
 	spawn_canister.set_pos(get_pos())
 	get_parent().add_child(spawn_canister)

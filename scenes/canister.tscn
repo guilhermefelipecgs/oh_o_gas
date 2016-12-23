@@ -35,13 +35,18 @@ tracks/3/path = NodePath("canister:visibility/visible")
 tracks/3/interp = 1
 tracks/3/imported = false
 tracks/3/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ false ] }
+tracks/4/type = "value"
+tracks/4/path = NodePath("CollisionShape2D:trigger")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ true ] }
 
 [node name="canister" type="RigidBody2D"]
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, -1.75194, 1.70801 )
-shapes/0/trigger = false
+shapes/0/trigger = true
 collision/layers = 1
 collision/mask = 1
 mode = 0
@@ -51,12 +56,12 @@ bounce = 0.0
 gravity_scale = 1.0
 custom_integrator = false
 continuous_cd = 0
-contacts_reported = 2
+contacts_reported = 5
 contact_monitor = true
 sleeping = false
 can_sleep = true
 velocity/linear = Vector2( 0, 0 )
-velocity/angular = 5.0
+velocity/angular = 0.0
 damp_override/linear = -1.0
 damp_override/angular = -1.0
 script/script = ExtResource( 1 )
@@ -65,7 +70,7 @@ script/script = ExtResource( 1 )
 
 transform/pos = Vector2( -1.75194, 1.70801 )
 shape = SubResource( 1 )
-trigger = false
+trigger = true
 _update_shape_index = 0
 
 [node name="canister" type="Sprite" parent="."]
@@ -81,7 +86,7 @@ transform/pos = Vector2( 0, -28 )
 texture = ExtResource( 3 )
 vframes = 3
 hframes = 5
-frame = 14
+frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
