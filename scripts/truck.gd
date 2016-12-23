@@ -4,7 +4,7 @@ var canister = preload("res://scenes/canister.tscn")
 const LEFT = Vector2(-1,-1)
 const RIGHT = Vector2(1,-1)
 const MAX_THROW = 350
-const MIN_THROW = 250
+const MIN_THROW = 220
 var left_time_press
 var right_time_press
 const MAX_TIME = 800
