@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://scenes/truck.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/human.tscn" type="PackedScene" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -35,6 +36,7 @@ __meta__ = { "_edit_lock_":true }
 
 [node name="floor" type="StaticBody2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 51.0662, 109.234 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
@@ -53,5 +55,9 @@ transform/pos = Vector2( -0.291992, 0.291992 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
+
+[node name="human" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( -188.748, 71.6493 )
 
 
