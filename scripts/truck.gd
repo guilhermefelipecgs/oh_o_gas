@@ -3,7 +3,7 @@ extends RigidBody2D
 const LEFT = Vector2(-1,-1)
 const RIGHT = Vector2(1,-1)
 const MAX_THROW = 350
-const MIN_THROW = 100
+const MIN_THROW = 50
 const MAX_TIME = 500
 
 var canister = preload("res://scenes/canister.tscn")
@@ -26,8 +26,7 @@ func _input(event):
 
 func throw(direction, delta_time_press):
 	var spawn_canister = canister.instance()
-	var force = MAX_THROW * delta_time_press / MAX_TIME
-	force = clamp(force, MIN_THROW, MAX_THROW)
+	var force = min(delta_time_press * (MAX_THROW - MIN_THROW) / MAX_TIME + MIN_THROW, MAX_THROW)
 	
 	spawn_canister.set_pos(get_pos())
 	if(direction == LEFT):
@@ -37,4 +36,4 @@ func throw(direction, delta_time_press):
 		spawn_canister.set_angular_velocity(-5)
 		spawn_canister.apply_impulse(Vector2(), RIGHT * force)
 		
-	get_parent().add_child(spawn_canister)
+	get_parent().get_parent().add_child(spawn_canister)
