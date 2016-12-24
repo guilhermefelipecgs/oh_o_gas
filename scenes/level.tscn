@@ -12,11 +12,11 @@ extents = Vector2( 264.548, 10 )
 
 [node name="truck" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 100, 82.5259 )
+transform/pos = Vector2( 150, 115 )
 
 [node name="floor" type="StaticBody2D" parent="."]
 
-transform/pos = Vector2( 265.213, 114.541 )
+transform/pos = Vector2( 265.088, 147.015 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, -7.66495, -12.4218 )
@@ -37,6 +37,6 @@ _update_shape_index = 0
 
 [node name="human" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 22.1255, 88.518 )
+transform/pos = Vector2( 22, 120.992 )
 
 
