@@ -3,8 +3,8 @@ extends RigidBody2D
 const LEFT = Vector2(-1,-1)
 const RIGHT = Vector2(1,-1)
 const MAX_THROW = 350
-const MIN_THROW = 200
-const MAX_TIME = 800
+const MIN_THROW = 100
+const MAX_TIME = 500
 
 var canister = preload("res://scenes/canister.tscn")
 var left_time_press
