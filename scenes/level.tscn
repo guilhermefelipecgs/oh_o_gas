@@ -10,37 +10,16 @@ extents = Vector2( 264.548, 10 )
 
 [node name="level" type="Node"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
-transform/pos = Vector2( 49.9191, 49.9191 )
-anchor_mode = 1
-rotating = false
-current = true
-zoom = Vector2( 2, 2 )
-limit/left = -10000000
-limit/top = -10000000
-limit/right = 10000000
-limit/bottom = 10000000
-limit/smoothed = false
-drag_margin/h_enabled = true
-drag_margin/v_enabled = true
-smoothing/enable = false
-smoothing/speed = 5.0
-drag_margin/left = 0.2
-drag_margin/top = 0.2
-drag_margin/right = 0.2
-drag_margin/bottom = 0.2
-__meta__ = { "_edit_lock_":true }
-
 [node name="truck" parent="." instance=ExtResource( 1 )]
+
+transform/pos = Vector2( 100, 82.5259 )
 
 [node name="floor" type="StaticBody2D" parent="."]
 
-editor/display_folded = true
-transform/pos = Vector2( 51.0662, 109.234 )
+transform/pos = Vector2( 265.213, 114.541 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, -0.291992, 0.291992 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -7.66495, -12.4218 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -51,13 +30,13 @@ bounce = 0.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
 
-transform/pos = Vector2( -0.291992, 0.291992 )
+transform/pos = Vector2( -7.66495, -12.4218 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
 [node name="human" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( -188.748, 71.6493 )
+transform/pos = Vector2( 22.1255, 88.518 )
 
 
