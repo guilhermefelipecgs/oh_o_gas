@@ -62,18 +62,19 @@ func _input(event):
 		throw(RIGHT, OS.get_ticks_msec() - right_time_press)
 
 func throw(direction, delta_time_press):
-
+	if(direction == LEFT):
+		if left_time_press == 0: return
+	elif right_time_press == 0: return
+	
 	var spawn_canister = canister.instance()
 	force = min(delta_time_press * (MAX_THROW - MIN_THROW) / MAX_TIME + MIN_THROW, MAX_THROW)
 	
 	spawn_canister.set_pos(get_pos())
 	if(direction == LEFT):
-		if left_time_press == 0: return
 		spawn_canister.set_angular_velocity(5)
 		spawn_canister.apply_impulse(Vector2(), LEFT * force)
 		left_time_press = 0
 	else:
-		if right_time_press == 0: return
 		spawn_canister.set_angular_velocity(-5)
 		spawn_canister.apply_impulse(Vector2(), RIGHT * force)
 		right_time_press = 0
