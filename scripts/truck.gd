@@ -1,10 +1,12 @@
 extends RigidBody2D
 
+export(ColorRamp) var color_ramp
+
 const LEFT = Vector2(-1,-1)
 const RIGHT = Vector2(1,-1)
 const MAX_THROW = 260
 const MIN_THROW = 50
-const MAX_TIME = 1000
+const MAX_TIME = 1000.0
 
 var force = 0
 var canister = preload("res://scenes/canister.tscn")
@@ -38,11 +40,13 @@ func _process(delta):
 
 	if delta_left:
 		left_pressbar.set_scale(Vector2(min(delta_left * max_pressbar_scale.x / MAX_TIME, max_pressbar_scale.x), max_pressbar_scale.y))
+		left_pressbar.set_modulate(color_ramp.interpolate(min(delta_left/MAX_TIME,1)))
 	else:
 		left_pressbar.set_scale(Vector2(0, max_pressbar_scale.y))
 		
 	if delta_right:
 		right_pressbar.set_scale(Vector2(min(delta_right * max_pressbar_scale.x / MAX_TIME, max_pressbar_scale.x), max_pressbar_scale.y))
+		right_pressbar.set_modulate(color_ramp.interpolate(min(delta_right/MAX_TIME,1)))
 	else:
 		right_pressbar.set_scale(Vector2(0, max_pressbar_scale.y))
 
