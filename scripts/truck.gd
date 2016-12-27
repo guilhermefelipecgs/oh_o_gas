@@ -18,6 +18,7 @@ var pressbar_max_scale
 var left_pressbar
 var right_pressbar
 
+
 func _ready():
 	left_pressbar = get_parent().get_node("HUD/left_pressbar")
 	right_pressbar = get_parent().get_node("HUD/right_pressbar")
