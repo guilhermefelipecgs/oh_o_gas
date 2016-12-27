@@ -4,7 +4,7 @@ export(ColorRamp) var color_ramp
 
 const LEFT = Vector2(-1,-1)
 const RIGHT = Vector2(1,-1)
-const MAX_THROW = 260.0
+const MAX_THROW = 235.0
 const MIN_THROW = 50.0
 const MAX_TIME = 1000.0
 
