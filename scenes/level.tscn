@@ -15,7 +15,7 @@ extents = Vector2( 264.548, 10 )
 
 [node name="truck" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 150, 134 )
+transform/pos = Vector2( 150, 116 )
 
 [node name="floor" type="StaticBody2D" parent="."]
 
@@ -23,7 +23,7 @@ editor/display_folded = true
 transform/pos = Vector2( 265.088, 147.015 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, -7.66495, 4.5782 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -6.66495, 4.5782 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -34,7 +34,7 @@ bounce = 0.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
 
-transform/pos = Vector2( -7.66495, 4.5782 )
+transform/pos = Vector2( -6.66495, 4.5782 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0

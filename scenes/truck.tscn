@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://scripts/truck.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://textures/truck0.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -12,6 +12,10 @@ extents = Vector2( 5, 7 )
 
 offsets = FloatArray( 0, 0.54386, 1 )
 colors = ColorArray( 0.148438, 1, 0, 1, 1, 0.861919, 0, 1, 1, 0, 0, 1 )
+
+[sub_resource type="SpriteFrames" id=3]
+
+animations = [ { "frames":[  ], "loop":true, "name":"default", "speed":5.0 } ]
 
 [node name="truck" type="RigidBody2D"]
 
@@ -49,5 +53,10 @@ _update_shape_index = 0
 
 transform/pos = Vector2( -9.49949e-08, -1.49012e-08 )
 texture = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+
+frames = SubResource( 3 )
+animation = "default"
 
 
