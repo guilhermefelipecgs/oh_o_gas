@@ -4,51 +4,51 @@ export(ColorRamp) var color_ramp
 
 const LEFT = Vector2(-1,-1)
 const RIGHT = Vector2(1,-1)
-const MAX_THROW = 260
-const MIN_THROW = 50
+const MAX_THROW = 260.0
+const MIN_THROW = 50.0
 const MAX_TIME = 1000.0
 
 var force = 0
 var canister = preload("res://scenes/canister.tscn")
 var left_time_press = 0
 var right_time_press = 0
-var delta_left
-var delta_right
-var max_pressbar_scale
+var pressbar_delta_left
+var pressbar_delta_right
+var pressbar_max_scale
 var left_pressbar
 var right_pressbar
 
 func _ready():
 	left_pressbar = get_parent().get_node("HUD/left_pressbar")
 	right_pressbar = get_parent().get_node("HUD/right_pressbar")
-	max_pressbar_scale = left_pressbar.get_scale()
+	pressbar_max_scale = left_pressbar.get_scale()
 	set_process_input(true)
 	set_process(true)
 	
 func _process(delta):
-	delta_left = 0
-	delta_right = 0
+	pressbar_delta_left = 0
+	pressbar_delta_right = 0
 	if left_time_press > 0:
-		delta_left = OS.get_ticks_msec() - left_time_press
-		if(delta_left >= MAX_TIME):
-			throw(LEFT, delta_left)
+		pressbar_delta_left = OS.get_ticks_msec() - left_time_press
+		if(pressbar_delta_left >= MAX_TIME):
+			throw(LEFT, pressbar_delta_left)
 	
 	if right_time_press > 0:
-		delta_right = OS.get_ticks_msec() - right_time_press
-		if(delta_right >= MAX_TIME):
-			throw(RIGHT, delta_right)
+		pressbar_delta_right = OS.get_ticks_msec() - right_time_press
+		if(pressbar_delta_right >= MAX_TIME):
+			throw(RIGHT, pressbar_delta_right)
 
-	if delta_left:
-		left_pressbar.set_scale(Vector2(min(delta_left * max_pressbar_scale.x / MAX_TIME, max_pressbar_scale.x), max_pressbar_scale.y))
-		left_pressbar.set_modulate(color_ramp.interpolate(min(delta_left/MAX_TIME,1)))
+	if pressbar_delta_left:
+		left_pressbar.set_scale(Vector2(min(pressbar_delta_left * pressbar_max_scale.x / MAX_TIME, pressbar_max_scale.x), pressbar_max_scale.y))
+		left_pressbar.set_modulate(color_ramp.interpolate(min(pressbar_delta_left/MAX_TIME,1)))
 	else:
-		left_pressbar.set_scale(Vector2(0, max_pressbar_scale.y))
+		left_pressbar.set_scale(Vector2(0, pressbar_max_scale.y))
 		
-	if delta_right:
-		right_pressbar.set_scale(Vector2(min(delta_right * max_pressbar_scale.x / MAX_TIME, max_pressbar_scale.x), max_pressbar_scale.y))
-		right_pressbar.set_modulate(color_ramp.interpolate(min(delta_right/MAX_TIME,1)))
+	if pressbar_delta_right:
+		right_pressbar.set_scale(Vector2(min(pressbar_delta_right * pressbar_max_scale.x / MAX_TIME, pressbar_max_scale.x), pressbar_max_scale.y))
+		right_pressbar.set_modulate(color_ramp.interpolate(min(pressbar_delta_right/MAX_TIME,1)))
 	else:
-		right_pressbar.set_scale(Vector2(0, max_pressbar_scale.y))
+		right_pressbar.set_scale(Vector2(0, pressbar_max_scale.y))
 
 func _input(event):
 	if event.is_action_pressed("ui_left"):
