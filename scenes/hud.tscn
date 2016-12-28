@@ -6,14 +6,14 @@
 
 [node name="left_pressbar" type="Sprite" parent="."]
 
-transform/pos = Vector2( 145, 17 )
+transform/pos = Vector2( 151, 17 )
 transform/scale = Vector2( 3.8125, 0.5625 )
 texture = ExtResource( 1 )
 offset = Vector2( -8, 0.888889 )
 
 [node name="right_pressbar" type="Sprite" parent="."]
 
-transform/pos = Vector2( 146, 18 )
+transform/pos = Vector2( 152, 18 )
 transform/scale = Vector2( 3.8125, 0.5625 )
 texture = ExtResource( 1 )
 offset = Vector2( 8, -0.888889 )
