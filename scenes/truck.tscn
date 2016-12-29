@@ -56,22 +56,12 @@ damp_override/angular = -1.0
 script/script = ExtResource( 1 )
 color_ramp = SubResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-
-shape = SubResource( 1 )
-trigger = true
-_update_shape_index = 0
-
-[node name="icon" type="Sprite" parent="."]
-
-visibility/visible = false
-transform/pos = Vector2( -9.49949e-08, -1.49012e-08 )
-texture = ExtResource( 2 )
-
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 
+editor/display_folded = true
 frames = SubResource( 3 )
 animation = "default"
+frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite"]
 
@@ -83,5 +73,11 @@ playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
 autoplay = "truck"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+shape = SubResource( 1 )
+trigger = true
+_update_shape_index = 0
 
 
