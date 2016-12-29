@@ -21,7 +21,7 @@ animations = [ { "frames":[ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 )
 
 resource/name = "level"
 length = 0.7
-loop = false
+loop = true
 step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -40,12 +40,10 @@ script/script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 150.356, 83.7348 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 5
-playing = true
+frame = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite"]
 
@@ -54,7 +52,7 @@ playback/default_blend_time = 0.0
 root/root = NodePath("..")
 anims/level = SubResource( 2 )
 playback/active = true
-playback/speed = 1.0
+playback/speed = 2.0
 blend_times = [  ]
 autoplay = "level"
 
