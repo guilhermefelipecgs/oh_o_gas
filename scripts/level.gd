@@ -14,7 +14,8 @@ func _process(delta):
 		var house = self.house.instance()
 		var human = self.human.instance()
 		human.walk_path = house.get_node("walk_path").get_pos()
-		house.get_node("spawn_place").add_child(human)
+		human.set_pos(house.get_node("spawn_place").get_pos())
+		house.add_child(human)
 		add_child(house)
 		last_spawn_time = OS.get_ticks_msec()
 	

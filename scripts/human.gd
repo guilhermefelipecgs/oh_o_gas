@@ -1,6 +1,5 @@
 extends RigidBody2D
 
-
 var go_home = false
 var scared = false
 var walk_path = Vector2()
@@ -18,7 +17,7 @@ func _process(delta):
 			set_pos(Vector2(get_pos().x-4,get_pos().y))
 	else:
 		if get_pos().distance_to(walk_path):
-			var dir = (get_pos() - walk_path).normalized()
+			var dir = (walk_path - pos).normalized()
 			pos += dir * 1
 			print(pos)
 			set_pos(pos)
