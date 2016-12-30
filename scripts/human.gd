@@ -16,7 +16,7 @@ func _process(delta):
 		else:
 			set_pos(Vector2(get_pos().x-4,get_pos().y))
 	else:
-		if get_pos().distance_to(walk_path):
+		if get_pos().length() <= walk_path.length():
 			var dir = (walk_path - pos).normalized()
 			pos += dir * 1
 			set_pos(pos)
