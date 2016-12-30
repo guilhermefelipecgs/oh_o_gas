@@ -33,3 +33,4 @@ func go_home(scared = false):
 func die():
 	global.score += 100
 	queue_free()
+	get_node("blood").play()
