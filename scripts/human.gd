@@ -19,7 +19,6 @@ func _process(delta):
 		if get_pos().distance_to(walk_path):
 			var dir = (walk_path - pos).normalized()
 			pos += dir * 1
-			print(pos)
 			set_pos(pos)
 	
 func go_home(scared = false):
