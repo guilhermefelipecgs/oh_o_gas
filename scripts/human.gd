@@ -4,6 +4,7 @@ var go_home = false
 var scared = false
 var walk_path = Vector2()
 var pos
+var mirror = false
 
 func _ready():
 	pos = get_pos()
@@ -11,6 +12,9 @@ func _ready():
 
 func _process(delta):
 	if(go_home):
+		if not mirror: 
+			set_scale(Vector2(get_scale().x * -1, 1))
+			mirror = true
 		if(not scared):
 			set_pos(Vector2(get_pos().x-1,get_pos().y))
 		else:
