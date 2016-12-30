@@ -59,6 +59,7 @@ color_ramp = SubResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 
 editor/display_folded = true
+transform/pos = Vector2( 0, 9 )
 frames = SubResource( 3 )
 animation = "default"
 frame = 1

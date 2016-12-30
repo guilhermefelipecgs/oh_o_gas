@@ -32,25 +32,20 @@ tracks/2/interp = 1
 tracks/2/imported = false
 tracks/2/keys = { "times":FloatArray( 0.7 ), "transitions":FloatArray( 1 ), "values":[ { "args":[  ], "method":"destroy" } ] }
 tracks/3/type = "value"
-tracks/3/path = NodePath("canister:trigger")
+tracks/3/path = NodePath("canister:visibility/visible")
 tracks/3/interp = 1
 tracks/3/imported = false
-tracks/3/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ true ] }
+tracks/3/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ false ] }
 tracks/4/type = "value"
-tracks/4/path = NodePath("canister:visibility/visible")
+tracks/4/path = NodePath("explosion_radius:monitoring")
 tracks/4/interp = 1
 tracks/4/imported = false
-tracks/4/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ false ] }
+tracks/4/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ true ] }
 tracks/5/type = "value"
-tracks/5/path = NodePath("explosion_radius:monitoring")
+tracks/5/path = NodePath("explosion_sound:play/play")
 tracks/5/interp = 1
 tracks/5/imported = false
-tracks/5/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ true ] }
-tracks/6/type = "value"
-tracks/6/path = NodePath("explosion_sound:play/play")
-tracks/6/interp = 1
-tracks/6/imported = false
-tracks/6/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":2, "values":[ "canister_explosion" ] }
+tracks/5/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":2, "values":[ "canister_explosion" ] }
 
 [sub_resource type="SampleLibrary" id=3]
 
@@ -59,7 +54,7 @@ samples/canister_explosion = { "db":0.0, "pitch":1.0, "sample":ExtResource( 4 ) 
 [sub_resource type="CircleShape2D" id=4]
 
 custom_solver_bias = 0.0
-radius = 14.6227
+radius = 29.4432
 
 [node name="canister" type="RigidBody2D"]
 
@@ -106,7 +101,7 @@ transform/scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 vframes = 3
 hframes = 5
-frame = 14
+frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
