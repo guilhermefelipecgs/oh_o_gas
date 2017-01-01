@@ -28,22 +28,22 @@ tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = { "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1 ), "update":1, "values":[ 0, 1, 2, 3, 4, 5, 6, 7 ] }
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 42.6667, 32 )
 
-[sub_resource type="ConvexPolygonShape2D" id=3]
+[sub_resource type="ConvexPolygonShape2D" id=4]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -10, 180, -10, 130, 100, 130, 130, 150 )
 
-[sub_resource type="ConvexPolygonShape2D" id=4]
+[sub_resource type="ConvexPolygonShape2D" id=5]
 
 custom_solver_bias = 0.0
 points = Vector2Array( 200, 130, 310, 130, 310, 180, 170, 150 )
 
-[sub_resource type="ConvexPolygonShape2D" id=5]
+[sub_resource type="ConvexPolygonShape2D" id=6]
 
 custom_solver_bias = 0.0
 points = Vector2Array( 310, 180, -10, 180, 130, 150, 170, 150 )
@@ -82,7 +82,7 @@ transform/pos = Vector2( 151, 113 )
 transform/pos = Vector2( 150, 82 )
 transform/scale = Vector2( 4.6875, 1 )
 input/pickable = true
-shapes/0/shape = SubResource( 6 )
+shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, -1.26666, -6 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -93,7 +93,7 @@ angular_damp = 1.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 
 transform/pos = Vector2( -1.26666, -6 )
-shape = SubResource( 6 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 0
 
@@ -101,13 +101,13 @@ _update_shape_index = 0
 
 transform/pos = Vector2( 150, 144.015 )
 input/pickable = false
-shapes/0/shape = SubResource( 3 )
+shapes/0/shape = SubResource( 4 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, -150, -144.015 )
 shapes/0/trigger = false
-shapes/1/shape = SubResource( 4 )
+shapes/1/shape = SubResource( 5 )
 shapes/1/transform = Matrix32( 1, 0, 0, 1, -150, -144.015 )
 shapes/1/trigger = false
-shapes/2/shape = SubResource( 5 )
+shapes/2/shape = SubResource( 6 )
 shapes/2/transform = Matrix32( 1, 0, 0, 1, -150, -144.015 )
 shapes/2/trigger = false
 collision/layers = 1
