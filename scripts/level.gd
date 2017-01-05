@@ -3,11 +3,19 @@ extends Node
 var house = preload("res://scenes/house.tscn")
 var human = preload("res://scenes/human.tscn")
 var last_spawn_time = 0.0
+var mirror = false
+var house_spawn_pos
+var house_target_pos
+
 
 const SPAWN_TIME = 1000.0
-var mirror = false
 
 func _ready():
+	house_spawn_pos = get_node("house_spawn").get_pos()
+	house_target_pos = get_node("house_target").get_pos()
+	global.house_direction = (house_target_pos - house_spawn_pos).normalized()
+	global.house_speed = 1
+	
 	set_process(true)
 	spawn_house()
 
@@ -18,8 +26,6 @@ func _process(delta):
 func spawn_house():
 	var house = self.house.instance()
 	var human = self.human.instance()
-	var house_spawn_pos = get_node("house_spawn").get_pos()
-	var house_target_pos = get_node("house_target").get_pos()
 	
 	house.set_pos(get_node("house_spawn").get_pos())
 	
