@@ -79,6 +79,8 @@ transform/pos = Vector2( 151, 113 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
+editor/display_folded = true
+visibility/visible = false
 transform/pos = Vector2( 150, 82 )
 transform/scale = Vector2( 4.6875, 1 )
 input/pickable = true
@@ -99,6 +101,7 @@ _update_shape_index = 0
 
 [node name="floor" type="StaticBody2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 150, 144.015 )
 input/pickable = false
 shapes/0/shape = SubResource( 4 )
@@ -124,6 +127,14 @@ build_mode = 0
 polygon = Vector2Array( -10, 130, 100, 130, 130, 150, 170, 150, 200, 130, 310, 130, 310, 180, -10, 180 )
 shape_range = Vector2( 0, 2 )
 trigger = false
+
+[node name="house_spawn" type="Position2D" parent="."]
+
+transform/pos = Vector2( 150, 34 )
+
+[node name="house_target" type="Position2D" parent="."]
+
+transform/pos = Vector2( 86, 261 )
 
 [connection signal="body_enter" from="Area2D" to="." method="_on_Area2D_body_enter"]
 

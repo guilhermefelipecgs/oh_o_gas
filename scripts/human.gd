@@ -6,9 +6,15 @@ var walk_path = Vector2()
 var pos
 var mirror = false
 
+var characters = ['mendigao', 'katcha', 'dogao', 'old_woman', 'ternurinha', 'viadinho']
+
 func _ready():
+	randomize()
 	pos = get_pos()
 	set_process(true)
+	var c = characters[randf() * 6]
+	var tex = load("res://textures/characters/" + c + ".png")
+	get_node("Sprite").set_texture(tex)
 
 func _process(delta):
 	if(go_home):
@@ -20,7 +26,7 @@ func _process(delta):
 		else:
 			set_pos(Vector2(get_pos().x-4,get_pos().y))
 	else:
-		if get_pos().length() <= walk_path.length():
+		if get_pos().distance_to(walk_path) >= 1:
 			var dir = (walk_path - pos).normalized()
 			pos += dir * 1
 			set_pos(pos)
