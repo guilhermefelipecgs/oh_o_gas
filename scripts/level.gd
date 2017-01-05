@@ -10,6 +10,7 @@ var house_target_pos
 const SPAWN_TIME = 1000.0
 
 func _ready():
+	OS.set_window_fullscreen(true)
 	house_spawn_pos = get_node("house_spawn").get_pos()
 	house_target_pos = get_node("house_target").get_pos()
 	global.house_direction = (house_target_pos - house_spawn_pos).normalized()
@@ -43,8 +44,10 @@ func spawn_house():
 
 
 func _on_Area2D_body_enter( body ):
-	body.set_contact_monitor(false)
+	if body.get_name() == 'canister':
+		body.set_contact_monitor(false)
 
 
 func _on_Area2D_body_exit( body ):
-	body.set_contact_monitor(true)
+	if body.get_name() == 'canister':
+		body.set_contact_monitor(true)
