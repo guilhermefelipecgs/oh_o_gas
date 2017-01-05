@@ -101,7 +101,6 @@ _update_shape_index = 0
 
 [node name="floor" type="StaticBody2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 150, 144.015 )
 input/pickable = false
 shapes/0/shape = SubResource( 4 )
@@ -135,6 +134,10 @@ transform/pos = Vector2( 150, 34 )
 [node name="house_target" type="Position2D" parent="."]
 
 transform/pos = Vector2( 86, 261 )
+
+[node name="YSort" type="YSort" parent="."]
+
+sort/enabled = true
 
 [connection signal="body_enter" from="Area2D" to="." method="_on_Area2D_body_enter"]
 

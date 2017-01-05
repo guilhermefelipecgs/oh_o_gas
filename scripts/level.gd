@@ -38,7 +38,7 @@ func spawn_house():
 		house.target = house_target_pos
 	
 	house.add_child(human)
-	add_child(house)
+	get_node("YSort").add_child(house)
 	last_spawn_time = OS.get_ticks_msec()
 
 
