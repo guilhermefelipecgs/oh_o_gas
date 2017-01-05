@@ -14,3 +14,6 @@ func _fixed_process(delta):
 
 func _on_VisibilityNotifier2D_exit_screen():
 	queue_free()
+
+func destroy():
+	get_node("Sprite").set_frame(2)
