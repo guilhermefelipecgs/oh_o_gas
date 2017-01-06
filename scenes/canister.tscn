@@ -56,7 +56,7 @@ samples/canister_explosion = { "db":0.0, "pitch":1.0, "sample":ExtResource( 4 ) 
 custom_solver_bias = 0.0
 radius = 29.4432
 
-[node name="canister" type="RigidBody2D"]
+[node name="canister" type="RigidBody2D" groups=[ "canister" ]]
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
@@ -143,8 +143,14 @@ shape = SubResource( 4 )
 trigger = true
 _update_shape_index = 0
 
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+
+rect = Rect2( -10, -10, 20, 20 )
+
 [connection signal="body_enter" from="." to="." method="_on_canister_body_enter"]
 
 [connection signal="body_enter" from="explosion_radius" to="." method="_on_explosion_radius_body_enter"]
+
+[connection signal="exit_screen" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_exit_screen"]
 
 

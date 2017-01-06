@@ -44,10 +44,10 @@ func spawn_house():
 
 
 func _on_Area2D_body_enter( body ):
-	if body.get_name() == 'canister':
+	if body.is_in_group('canister'):
 		body.set_contact_monitor(false)
 
 
 func _on_Area2D_body_exit( body ):
-	if body.get_name() == 'canister':
+	if body.is_in_group('canister'):
 		body.set_contact_monitor(true)
