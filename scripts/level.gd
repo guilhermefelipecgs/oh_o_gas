@@ -32,7 +32,7 @@ func spawn_house():
 	human.walk_path = house.get_node("walk_path").get_pos()
 	human.set_pos(house.get_node("spawn_place").get_pos())
 	
-	if ceil(randf() * 2) == 10:
+	if ceil(randf() * 2) == 1:
 		house.target = Vector2((house_spawn_pos.x - house_target_pos.x) + house_spawn_pos.x, house_target_pos.y)
 		house.set_scale(Vector2(-1, 1))
 	else:
