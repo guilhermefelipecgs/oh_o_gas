@@ -95,7 +95,6 @@ centered = false
 
 [node name="explosion" type="Sprite" parent="."]
 
-visibility/visible = false
 transform/pos = Vector2( 0, -18 )
 transform/scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )

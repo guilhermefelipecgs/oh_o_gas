@@ -10,7 +10,7 @@ var house_target_pos
 const SPAWN_TIME = 1000.0
 
 func _ready():
-	OS.set_window_fullscreen(true)
+	
 	house_spawn_pos = get_node("house_spawn").get_pos()
 	house_target_pos = get_node("house_target").get_pos()
 	global.house_direction = (house_target_pos - house_spawn_pos).normalized()
@@ -32,7 +32,7 @@ func spawn_house():
 	human.walk_path = house.get_node("walk_path").get_pos()
 	human.set_pos(house.get_node("spawn_place").get_pos())
 	
-	if ceil(randf() * 2) == 1:
+	if ceil(randf() * 2) == 10:
 		house.target = Vector2((house_spawn_pos.x - house_target_pos.x) + house_spawn_pos.x, house_target_pos.y)
 		house.set_scale(Vector2(-1, 1))
 	else:
