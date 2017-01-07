@@ -7,7 +7,7 @@ var house_spawn_pos
 var house_target_pos
 
 
-const SPAWN_TIME = 800.0
+const SPAWN_TIME = 1200.0
 
 func _ready():
 	

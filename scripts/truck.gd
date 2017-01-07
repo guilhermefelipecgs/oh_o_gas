@@ -80,4 +80,4 @@ func throw(direction, delta_time_press):
 		spawn_canister.apply_impulse(Vector2(), RIGHT * force)
 		right_time_press = 0
 		
-	get_tree().get_root().add_child(spawn_canister)
+	get_parent().add_child(spawn_canister)
