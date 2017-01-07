@@ -19,6 +19,8 @@ func _on_canister_body_enter( body ):
 	if body.get_name() == "human":
 		do_not_explode_pls = true
 		hide()
+		set_mode(MODE_STATIC)
+		set_contact_monitor(false)
 		body.go_home()
 	elif body.get_name() == "floor" || body.is_in_group("house"):
 		if not do_not_explode_pls:

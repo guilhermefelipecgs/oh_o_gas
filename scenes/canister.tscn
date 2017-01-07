@@ -134,6 +134,7 @@ config/pitch_random = 0.0
 [node name="explosion_radius" type="Area2D" parent="."]
 
 editor/display_folded = true
+visibility/visible = false
 transform/scale = Vector2( 1, 0.5625 )
 input/pickable = true
 shapes/0/shape = SubResource( 4 )

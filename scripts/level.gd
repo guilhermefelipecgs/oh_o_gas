@@ -7,14 +7,14 @@ var house_spawn_pos
 var house_target_pos
 
 
-const SPAWN_TIME = 1000.0
+const SPAWN_TIME = 800.0
 
 func _ready():
 	
 	house_spawn_pos = get_node("house_spawn").get_pos()
 	house_target_pos = get_node("house_target").get_pos()
 	global.house_direction = (house_target_pos - house_spawn_pos).normalized()
-	global.house_speed = 1
+	global.house_speed = 0.7
 	
 	set_process(true)
 	spawn_house()
@@ -42,12 +42,10 @@ func spawn_house():
 	get_node("YSort").add_child(house)
 	last_spawn_time = OS.get_ticks_msec()
 
-
-func _on_Area2D_body_enter( body ):
+func _on_deactivates_canister_body_enter( body ):
 	if body.is_in_group('canister'):
 		body.set_contact_monitor(false)
 
-
-func _on_Area2D_body_exit( body ):
+func _on_deactivates_canister_body_exit( body ):
 	if body.is_in_group('canister'):
 		body.set_contact_monitor(true)
