@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://scripts/canister.gd" type="Script" id=1]
 [ext_resource path="res://textures/canister.png" type="Texture" id=2]
 [ext_resource path="res://textures/explosion-sprite.png" type="Texture" id=3]
 [ext_resource path="res://sounds/canister_explosion.wav" type="Sample" id=4]
+[ext_resource path="res://textures/aim.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -46,6 +47,11 @@ tracks/5/path = NodePath("explosion_sound:play/play")
 tracks/5/interp = 1
 tracks/5/imported = false
 tracks/5/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":2, "values":[ "canister_explosion" ] }
+tracks/6/type = "value"
+tracks/6/path = NodePath("aim:visibility/visible")
+tracks/6/interp = 1
+tracks/6/imported = false
+tracks/6/keys = { "times":FloatArray( 0, 0.7 ), "transitions":FloatArray( 1, 1 ), "update":1, "values":[ true, false ] }
 
 [sub_resource type="SampleLibrary" id=3]
 
@@ -127,9 +133,11 @@ config/pitch_random = 0.0
 
 [node name="explosion_radius" type="Area2D" parent="."]
 
+editor/display_folded = true
+transform/scale = Vector2( 1, 0.5625 )
 input/pickable = true
 shapes/0/shape = SubResource( 4 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/transform = Matrix32( 0.863047, 0, 0, 0.712356, 0, 0 )
 shapes/0/trigger = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -139,9 +147,16 @@ monitoring = false
 
 [node name="explosion" type="CollisionShape2D" parent="explosion_radius"]
 
+transform/scale = Vector2( 0.863047, 0.712356 )
 shape = SubResource( 4 )
 trigger = true
 _update_shape_index = 0
+
+[node name="aim" type="Sprite" parent="."]
+
+visibility/visible = false
+transform/pos = Vector2( 5.90771e-07, 0 )
+texture = ExtResource( 5 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 
