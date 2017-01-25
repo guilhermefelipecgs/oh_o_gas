@@ -5,6 +5,7 @@ var walk_path = Vector2()
 var spawn_place = Vector2()
 var pos
 var mirror = false
+var damage_message = preload("res://scenes/damage_message.tscn")
 
 var characters = ['mendigao', 'katcha', 'dogao', 'old_woman', 'ternurinha', 'viadinho']
 
@@ -39,7 +40,12 @@ func go_home():
 	global.score += 50
 
 func die():
-	global.score += 100
+	var dm = damage_message.instance()
+	dm.set_text("+75")
+	get_tree().get_root().add_child(dm)
+	dm.set_pos(get_global_pos() - Vector2(dm.get_size().x/2, dm.get_size().y/2))
+
+	global.score += 75
 	get_node("Sprite").hide()
 	get_node("blood").show()
 	get_node("blood/AnimationPlayer").play("blood")

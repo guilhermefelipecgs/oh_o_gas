@@ -4,7 +4,7 @@
 [ext_resource path="res://textures/house.png" type="Texture" id=2]
 [ext_resource path="res://textures/house_fucked.png" type="Texture" id=3]
 
-[sub_resource type="ConvexPolygonShape2D" id=3]
+[sub_resource type="ConvexPolygonShape2D" id=1]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -128, 21, -128, -15, -114, -36, -74, -36, -66, -31, -66, -5, -82, 21 )
@@ -16,7 +16,7 @@ animations = [ { "frames":[ ExtResource( 2 ), ExtResource( 3 ) ], "loop":true, "
 [node name="house" type="RigidBody2D" groups=[ "house" ]]
 
 input/pickable = false
-shapes/0/shape = SubResource( 3 )
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 5, 0.203899 )
 shapes/0/trigger = true
 collision/layers = 1
@@ -64,6 +64,10 @@ build_mode = 0
 polygon = Vector2Array( -128, 21, -128, -15, -114, -36, -74, -36, -66, -31, -66, -5, -82, 21 )
 shape_range = Vector2( 0, 0 )
 trigger = true
+
+[node name="message_position" type="Position2D" parent="."]
+
+transform/pos = Vector2( -78, -5 )
 
 [connection signal="exit_screen" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_exit_screen"]
 
