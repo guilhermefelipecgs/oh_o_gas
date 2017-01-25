@@ -31,6 +31,7 @@ func spawn_house():
 	house.set_pos(get_node("house_spawn").get_pos())
 	
 	human.walk_path = house.get_node("walk_path").get_pos()
+	human.spawn_place = house.get_node("spawn_place").get_pos()
 	human.set_pos(house.get_node("spawn_place").get_pos())
 	
 	if ceil(randf() * 2) == 1:

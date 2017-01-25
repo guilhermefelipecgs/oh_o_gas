@@ -1,8 +1,8 @@
 extends RigidBody2D
 
 var go_home = false
-var scared = false
 var walk_path = Vector2()
+var spawn_place = Vector2()
 var pos
 var mirror = false
 
@@ -21,18 +21,20 @@ func _process(delta):
 		if not mirror: 
 			set_scale(Vector2(get_scale().x * -1, 1))
 			mirror = true
-		if(not scared):
-			set_pos(Vector2(get_pos().x-1,get_pos().y))
 		else:
-			set_pos(Vector2(get_pos().x-4,get_pos().y))
+			if get_pos().distance_to(spawn_place) >= 1:
+				var dir = (spawn_place - pos).normalized()
+				pos += dir * 1
+				set_pos(pos)
+			else:
+				hide()
 	else:
 		if get_pos().distance_to(walk_path) >= 1:
 			var dir = (walk_path - pos).normalized()
 			pos += dir * 1
 			set_pos(pos)
 	
-func go_home(scared = false):
-	self.scared = scared
+func go_home():
 	go_home = true
 	global.score += 50
 
