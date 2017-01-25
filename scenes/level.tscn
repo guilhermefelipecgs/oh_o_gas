@@ -80,6 +80,7 @@ transform/pos = Vector2( 151, 113 )
 
 [node name="deactivates_canister" type="Area2D" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 transform/pos = Vector2( 148, 92 )
 input/pickable = true

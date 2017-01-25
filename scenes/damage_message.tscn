@@ -6,7 +6,11 @@
 
 script/source = "extends Label\n\nfunc _on_Timer_timeout():\n\tqueue_free()\n"
 
-[node name="Label" type="Label"]
+[node name="Node2D" type="Node2D"]
+
+z/z = 2
+
+[node name="Label" type="Label" parent="."]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -27,13 +31,13 @@ lines_skipped = 0
 max_lines_visible = -1
 script/script = SubResource( 1 )
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="Label"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = false
 autostart = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Label/Timer" to="Label" method="_on_Timer_timeout"]
 
 

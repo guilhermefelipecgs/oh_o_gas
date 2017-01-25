@@ -37,18 +37,18 @@ func _process(delta):
 	
 func go_home():
 	var dm = damage_message.instance()
-	dm.set_text("+25")
-	get_tree().get_root().add_child(dm)
-	dm.set_pos(get_global_pos() - Vector2(dm.get_size().x/2, dm.get_size().y/2))
+	dm.get_node("Label").set_text("+25")
+	get_tree().get_root().get_node("level").add_child(dm)
+	dm.get_node("Label").set_pos(get_global_pos() - Vector2(dm.get_node("Label").get_size().x/2, dm.get_node("Label").get_size().y/2))
 	
 	go_home = true
 	global.score += 25
 
 func die():
 	var dm = damage_message.instance()
-	dm.set_text("+75")
+	dm.get_node("Label").set_text("+75")
 	get_tree().get_root().add_child(dm)
-	dm.set_pos(get_global_pos() - Vector2(dm.get_size().x/2, dm.get_size().y/2))
+	dm.get_node("Label").set_pos(get_global_pos() - Vector2(dm.get_node("Label").get_size().x/2, dm.get_node("Label").get_size().y/2))
 
 	global.score += 75
 	get_node("Sprite").hide()
