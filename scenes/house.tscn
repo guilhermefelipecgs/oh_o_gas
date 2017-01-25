@@ -4,7 +4,7 @@
 [ext_resource path="res://textures/house.png" type="Texture" id=2]
 [ext_resource path="res://textures/house_fucked.png" type="Texture" id=3]
 
-[sub_resource type="ConvexPolygonShape2D" id=1]
+[sub_resource type="ConvexPolygonShape2D" id=3]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -128, 21, -128, -15, -114, -36, -74, -36, -66, -31, -66, -5, -82, 21 )
@@ -16,8 +16,8 @@ animations = [ { "frames":[ ExtResource( 2 ), ExtResource( 3 ) ], "loop":true, "
 [node name="house" type="RigidBody2D" groups=[ "house" ]]
 
 input/pickable = false
-shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 5, 0.203899 )
 shapes/0/trigger = true
 collision/layers = 1
 collision/mask = 1
@@ -40,25 +40,26 @@ script/script = ExtResource( 1 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 
-transform/pos = Vector2( -96, -4.2039 )
+transform/pos = Vector2( -91, -4 )
 frames = SubResource( 2 )
 animation = "default"
 
 [node name="spawn_place" type="Position2D" parent="."]
 
-transform/pos = Vector2( -70, 2.394 )
+transform/pos = Vector2( -65, 2.5979 )
 
 [node name="walk_path" type="Position2D" parent="."]
 
-transform/pos = Vector2( -45, 1 )
+transform/pos = Vector2( -40, 1.2039 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 
-transform/pos = Vector2( -43.2123, 0 )
+transform/pos = Vector2( -38.2123, 0.203899 )
 rect = Rect2( -10, -10, 20, 20 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 
+transform/pos = Vector2( 5, 0.203899 )
 build_mode = 0
 polygon = Vector2Array( -128, 21, -128, -15, -114, -36, -74, -36, -66, -31, -66, -5, -82, 21 )
 shape_range = Vector2( 0, 0 )
