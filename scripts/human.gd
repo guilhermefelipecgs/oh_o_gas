@@ -36,8 +36,13 @@ func _process(delta):
 			set_pos(pos)
 	
 func go_home():
+	var dm = damage_message.instance()
+	dm.set_text("+25")
+	get_tree().get_root().add_child(dm)
+	dm.set_pos(get_global_pos() - Vector2(dm.get_size().x/2, dm.get_size().y/2))
+	
 	go_home = true
-	global.score += 50
+	global.score += 25
 
 func die():
 	var dm = damage_message.instance()
