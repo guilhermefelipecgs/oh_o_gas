@@ -6,6 +6,7 @@ var spawn_place = Vector2()
 var pos
 var mirror = false
 var damage_message = preload("res://scenes/damage_message.tscn")
+var dead = false
 
 var characters = ['mendigao', 'katcha', 'dogao', 'old_woman', 'ternurinha', 'viadinho']
 
@@ -45,12 +46,14 @@ func go_home():
 	global.score += 25
 
 func die():
-	var dm = damage_message.instance()
-	dm.get_node("Label").set_text("+75")
-	get_tree().get_root().add_child(dm)
-	dm.get_node("Label").set_pos(get_global_pos() - Vector2(dm.get_node("Label").get_size().x/2, dm.get_node("Label").get_size().y/2))
-
-	global.score += 75
-	get_node("Sprite").hide()
-	get_node("blood").show()
-	get_node("blood/AnimationPlayer").play("blood")
+	if not dead:
+		var dm = damage_message.instance()
+		dm.get_node("Label").set_text("+75")
+		get_tree().get_root().add_child(dm)
+		dm.get_node("Label").set_pos(get_global_pos() - Vector2(dm.get_node("Label").get_size().x/2, dm.get_node("Label").get_size().y/2))
+	
+		global.score += 75
+		get_node("Sprite").hide()
+		get_node("blood").show()
+		get_node("blood/AnimationPlayer").play("blood")
+		dead = true

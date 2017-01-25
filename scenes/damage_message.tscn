@@ -34,7 +34,7 @@ script/script = SubResource( 1 )
 [node name="Timer" type="Timer" parent="Label"]
 
 process_mode = 1
-wait_time = 1.0
+wait_time = 0.5
 one_shot = false
 autostart = true
 
