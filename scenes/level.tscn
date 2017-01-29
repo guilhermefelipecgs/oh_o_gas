@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=1]
+[gd_scene load_steps=20 format=1]
 
 [ext_resource path="res://scripts/level.gd" type="Script" id=1]
 [ext_resource path="res://textures/level/level1.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://scenes/hud.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/truck.tscn" type="PackedScene" id=11]
 [ext_resource path="res://sounds/olha_o_gas.opus" type="AudioStream" id=12]
+[ext_resource path="res://scenes/intro.tscn" type="PackedScene" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -149,7 +150,7 @@ stream/play = false
 stream/loop = false
 stream/volume_db = 0.0
 stream/autoplay = true
-stream/paused = false
+stream/paused = true
 stream/loop_restart_time = 0.0
 stream/buffering_ms = 500
 
@@ -159,6 +160,8 @@ process_mode = 1
 wait_time = 1.0
 one_shot = false
 autostart = false
+
+[node name="intro" parent="." instance=ExtResource( 13 )]
 
 [connection signal="body_enter" from="deactivates_canister" to="." method="_on_deactivates_canister_body_enter"]
 

@@ -8,7 +8,7 @@ var mirror = false
 var damage_message = preload("res://scenes/damage_message.tscn")
 var dead = false
 
-var characters = ['mendigao', 'katcha', 'dogao', 'old_woman', 'ternurinha', 'viadinho']
+var characters = ['bagger', 'katcha', 'dogao', 'old_woman', 'ternurinha', 'guy']
 
 func _ready():
 	randomize()

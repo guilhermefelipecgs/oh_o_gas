@@ -33,6 +33,7 @@ script/script = SubResource( 1 )
 
 [node name="Timer" type="Timer" parent="Label"]
 
+process/pause_mode = 2
 process_mode = 1
 wait_time = 0.5
 one_shot = false
