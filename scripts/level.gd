@@ -23,7 +23,7 @@ func _process(delta):
 	var time_left = get_node("Timer").get_time_left()
 	var temp_time_left  = int((time_left - int(time_left))*1000)
 	get_node("HUD/time_remaining").set_text(str(int(time_left)) + "." + str(temp_time_left))
-	if(OS.get_ticks_msec() - last_spawn_time >= SPAWN_TIME):
+	if((OS.get_ticks_msec() + delta - last_spawn_time) >= SPAWN_TIME):
 		spawn_house()
 
 func spawn_house():
