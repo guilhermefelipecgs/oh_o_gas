@@ -1,13 +1,16 @@
 extends Node
 
+const SPAWN_TIME = 1200.0
+const MAX_SHAKE_TIME = 200
+
 var house = preload("res://scenes/house.tscn")
 var human = preload("res://scenes/human.tscn")
 var gas_over = preload("res://scenes/gas_over.tscn")
 var last_spawn_time = 0.0
 var house_spawn_pos
 var house_target_pos
-
-const SPAWN_TIME = 1200.0
+var start_shake_time = 0
+var i_camera = 0
 
 func _ready():
 	get_tree().set_pause(true)
@@ -25,6 +28,16 @@ func _process(delta):
 	get_node("HUD/time_remaining").set_text(str(int(time_left)) + "." + str(temp_time_left))
 	if((OS.get_ticks_msec() - last_spawn_time) >= SPAWN_TIME):
 		spawn_house()
+	
+	if global.camera_shake:
+		start_shake_time = OS.get_ticks_msec() + MAX_SHAKE_TIME
+		global.camera_shake = false
+	if start_shake_time > OS.get_ticks_msec():
+		if i_camera % 2 == 0:
+			get_node("Camera2D").set_pos(get_node("Camera2D").get_pos() + Vector2(randi() % 3, randi() % 3))
+		else:
+			get_node("Camera2D").set_pos(Vector2())
+	i_camera+=1
 
 func spawn_house():
 	var house = self.house.instance()
@@ -55,8 +68,9 @@ func _on_deactivates_canister_body_exit( body ):
 		body.set_contact_monitor(true)
 
 func _on_Timer_timeout():
-	get_tree().set_pause(true)
-	var go = gas_over.instance()
-	go.get_node("score").set_text("SCORE: " + str(global.score))
-	add_child(go)
+	get_node("music").play()
+	#get_tree().set_pause(true)
+	#var go = gas_over.instance()
+	#go.get_node("score").set_text("SCORE: " + str(global.score))
+	#add_child(go)
 	

@@ -11,7 +11,7 @@
 [ext_resource path="res://textures/level/level8.png" type="Texture" id=9]
 [ext_resource path="res://scenes/hud.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/truck.tscn" type="PackedScene" id=11]
-[ext_resource path="res://sounds/olha_o_gas.opus" type="AudioStream" id=12]
+[ext_resource path="res://sounds/olha_o_gas.loop.opus" type="AudioStream" id=12]
 [ext_resource path="res://scenes/intro.tscn" type="PackedScene" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
@@ -56,6 +56,7 @@ script/script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 150.356, 83.7348 )
 frames = SubResource( 1 )
 animation = "default"
@@ -162,7 +163,26 @@ autostart = false
 
 [node name="intro" parent="." instance=ExtResource( 13 )]
 
-visibility/visible = false
+z/z = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+anchor_mode = 0
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit/left = -10000000
+limit/top = -10000000
+limit/right = 10000000
+limit/bottom = 10000000
+drag_margin/h_enabled = true
+drag_margin/v_enabled = true
+smoothing/enable = false
+smoothing/speed = 5.0
+drag_margin/left = 0.2
+drag_margin/top = 0.2
+drag_margin/right = 0.2
+drag_margin/bottom = 0.2
 
 [connection signal="body_enter" from="deactivates_canister" to="." method="_on_deactivates_canister_body_enter"]
 

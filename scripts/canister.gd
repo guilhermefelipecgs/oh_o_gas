@@ -29,6 +29,7 @@ func explode():
 	set_rot(0)
 	get_node("AnimationPlayer").play("explosion")
 	set_process(true)
+	global.camera_shake = true
 
 func destroy():
 	hide()
