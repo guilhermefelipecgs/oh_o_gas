@@ -51,7 +51,19 @@ func _process(delta):
 	else:
 		right_pressbar.set_scale(Vector2(0, pressbar_max_scale.y))
 
+var action_index = {}
+
 func _input(event):
+	# Touch
+	if event.type == InputEvent.SCREEN_TOUCH:
+		if event.pressed:
+			var action = "ui_right" if event.pos.x/get_pos().x > 1 else "ui_left"
+			action_index[event.index] = action
+			event.set_as_action(action, true)
+		else:
+			event.set_as_action(action_index[event.index], false)
+#
+	# Action
 	if event.is_action_pressed("ui_left"):
 		left_time_press = OS.get_ticks_msec()
 	elif event.is_action_released("ui_left"):

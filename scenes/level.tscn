@@ -56,7 +56,6 @@ script/script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 150.356, 83.7348 )
 frames = SubResource( 1 )
 animation = "default"
@@ -162,6 +161,8 @@ one_shot = false
 autostart = false
 
 [node name="intro" parent="." instance=ExtResource( 13 )]
+
+visibility/visible = false
 
 [connection signal="body_enter" from="deactivates_canister" to="." method="_on_deactivates_canister_body_enter"]
 

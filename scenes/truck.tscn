@@ -4,16 +4,16 @@
 [ext_resource path="res://textures/truck0.png" type="Texture" id=2]
 [ext_resource path="res://textures/truck1.png" type="Texture" id=3]
 
-[sub_resource type="ColorRamp" id=2]
+[sub_resource type="ColorRamp" id=1]
 
 offsets = FloatArray( 0, 0.54386, 1 )
 colors = ColorArray( 0.148438, 1, 0, 1, 1, 0.861919, 0, 1, 1, 0, 0, 1 )
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=2]
 
 animations = [ { "frames":[ ExtResource( 2 ), ExtResource( 3 ) ], "loop":true, "name":"default", "speed":5.0 } ]
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 
 resource/name = "truck"
 length = 0.2
@@ -46,13 +46,13 @@ velocity/angular = 0.0
 damp_override/linear = -1.0
 damp_override/angular = -1.0
 script/script = ExtResource( 1 )
-color_ramp = SubResource( 2 )
+color_ramp = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 
 editor/display_folded = true
 transform/pos = Vector2( 0, 9 )
-frames = SubResource( 3 )
+frames = SubResource( 2 )
 animation = "default"
 frame = 1
 
@@ -61,7 +61,7 @@ frame = 1
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/truck = SubResource( 4 )
+anims/truck = SubResource( 3 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]

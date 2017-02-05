@@ -1,6 +1,7 @@
 extends Node
 
-
+func _ready():
+	show()
 
 func _on_Button_pressed():
 	get_tree().set_pause(false)
