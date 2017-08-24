@@ -1,4 +1,4 @@
-# oh_o_gas
+# Gas Mayhem!
 Game made for Godot Community Game Jam - Dec 2016/Jan 2017
 
 Play the game here
